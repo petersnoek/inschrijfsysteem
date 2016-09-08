@@ -19,7 +19,8 @@ if (empty($_SESSION['errors'])) $result = CheckUserIsValid($db, $_POST['email'],
 
 if ( $result == 1 ) {
 	LoginSession($userId, $_POST['email']);
-	echo 'User logged in.';
+	header('Location: main.php');
+	exit;	
 }
 else
 {

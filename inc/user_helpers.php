@@ -41,7 +41,19 @@ function LoginSession($userId, $userEmail) {
 	$_SESSION['userEmail'] = $userEmail;
 }
 
-function LogoutSession() {
+function IsLoggedInSession() {
+	if (isset($_SESSION['userId'])==false || empty($_SESSION['userId']) ) {
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+function LogOutSession() {
+	$_SESSION['userId'] = null;
+	$_SESSION['userEmail'] = null;	
 	unset($_SESSION['userId']);
 	unset($_SESSION['userEmail']);	
 }

@@ -1,30 +1,6 @@
-<!doctype html>
-<html>
-<head>
-	<link href="css/style.css" rel="stylesheet">
-	<title>Login</title>
-</head>
-<body>
+@extends('_layout')
 
-<div class="topbar">
-@if(isset($_SESSION['userEmail']))
-	{{ $_SESSION['userEmail'] }}
-	<a href="logout.php">Logout</a>
-@endif
-</div>
-
-@if(isset($errors))				{{-- does $errors exist? --}}
-	@if($errors->any())			{{-- does $errors have any errors? --}}
-	<div class="errors" >
-	<ul>
-		@foreach ($errors->all() as $error)		
-			<li>{{ $error }}</li>
-		@endforeach
-	</ul>
-	</div>
-	@endif
-@endif
-
+@section('content')
 <h1>Login</h1>
 <form method="POST" action="login_action.php" class="loginform">
 	<label for="email">Email</label>  
@@ -35,6 +11,5 @@
 
 	<input type="submit"><br>
 </form>
+@endsection
 
-</body>
-</html>
