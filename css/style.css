@@ -1,5 +1,33 @@
 body {
 	font-family: roboto;
+	margin: 0;
+	padding: 0;
+}
+
+div.content {
+	padding: 1em;
+}
+
+div.debugbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	min-height: 80px;
+	background-color: pink;
+	border: 1px solid silver;
+}
+
+div.debugbar .col {
+	width: 48%;
+	float: left;
+	margin-right: 1%;
+	font-size: 8pt;
+}
+
+div.debugbar .col p {
+	margin: 0;
+	padding: 0;
 }
 
 .loginform label {
@@ -8,8 +36,8 @@ body {
 }
 
 .topbar {
-	width: 100%;
-	height: 26px;
+	width: 100%-10px;
+	height: 24px;
 	color: white;
 	background-color: black;
 	padding: 5px;

@@ -15,10 +15,16 @@ if ( empty($_POST['pass']) ) {
 }
 
 // check if user can be found
-if (empty($_SESSION['errors'])) $result = CheckUserIsValid($db, $_POST['email'], $_POST['pass']);
+if (empty($_SESSION['errors'])) $resultarray = CheckUserIsValid($db, $_POST['email'], $_POST['pass']);
 
-if ( $result == 1 ) {
-	LoginSession($userId, $_POST['email']);
+if ( $resultarray['result'] == 1 ) {
+	LoginSession($resultarray['userId'], $resultarray['userEmail'], $resultarray['displayName']);
+
+	// als gebruiker heeft aangevinkt "onthou mij", bewaar userId en userName dan in cookie
+	if ( isset($_POST['remember']) && $_POST['remember'] == "checked") {
+		RememberCookie($resultarray['userId'], $resultarray['userEmail'], $resultarray['displayName']);
+	}
+
 	header('Location: main.php');
 	exit;	
 }

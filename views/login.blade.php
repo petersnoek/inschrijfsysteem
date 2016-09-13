@@ -9,6 +9,8 @@
 	<label for="pass">Password</label>  
 	<input name="pass" type="password" ><br>
 
+	<input name="remember" type="checkbox" value="checked"> Onthoud mij <br>
+
 	<input type="submit"><br>
 </form>
 @endsection

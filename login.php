@@ -1,6 +1,8 @@
 <?php 
 
 require_once 'inc/session.php';
+require_once 'inc/user_helpers.php';
+
 
 // configure blade engine
 require 'vendor/autoload.php';
@@ -15,5 +17,13 @@ if ( isset ($_SESSION['errors'])) {
 	$_SESSION['errors'] = array();	// remove all errors
 }
 
-// tell blade to create HTML from the template "login.blade.php"
-echo $blade->view()->make('login')->withErrors($errors)->render();
+if ( IsLoggedInSession()==true ) {
+	// stuur direct door naar main pagina
+	header('location: main.php');
+	exit;
+}
+else
+{
+	// tell blade to create HTML from the template "login.blade.php"
+	echo $blade->view()->make('login')->withErrors($errors)->render();
+}

@@ -4,7 +4,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 08 sep 2016 om 10:17
+-- Genereertijd: 13 sep 2016 om 13:52
 -- Serverversie: 10.0.20-MariaDB
 -- PHP-versie: 5.2.17
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `displayname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -41,10 +42,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Gegevens worden uitgevoerd voor tabel `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `pass`, `created_at`, `validation_token`, `active`) VALUES
-(1, 'psnoek@davinci.nl', 'd10df0042b4a1685e913cfd2769f05a8eb5e5f6f', '2016-09-06 08:01:41', '', 1),
-(2, 'nonactive@davinci.nl', 'd10df0042b4a1685e913cfd2769f05a8eb5e5f6f', '2016-09-06 09:02:02', '', 0),
-(3, 'wrongpass@davinci.nl', 'hjfk;ghsjekrhgjksdlrfhkjgsdlkjfhgg', '2016-09-06 09:02:02', '', 1);
+INSERT INTO `users` (`id`, `displayname`, `email`, `pass`, `created_at`, `validation_token`, `active`) VALUES
+(1, 'Peter', 'psnoek@davinci.nl', 'd10df0042b4a1685e913cfd2769f05a8eb5e5f6f', '2016-09-06 08:01:41', '', 1),
+(2, 'Nonactive', 'nonactive@davinci.nl', 'd10df0042b4a1685e913cfd2769f05a8eb5e5f6f', '2016-09-06 09:02:02', '', 0),
+(3, 'WrongPass', 'wrongpass@davinci.nl', 'hjfk;ghsjekrhgjksdlrfhkjgsdlkjfhgg', '2016-09-06 09:02:02', '', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
