@@ -1,8 +1,8 @@
 <?php
 
 require_once 'inc/session.php';
-require 'inc/dbconnection.php';
-require 'inc/user_helpers.php';
+require_once 'inc/dbconnection.php';
+require_once 'inc/user_helpers.php';
 
 // redirect back to login with error if user didn't enter email
 if ( empty($_POST['email']) ) {
