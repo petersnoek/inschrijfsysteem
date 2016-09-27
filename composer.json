@@ -1,5 +1,7 @@
 {
     "require": {
-        "philo/laravel-blade": "3.*"
+        "philo/laravel-blade": "3.*",
+        "phpmailer/phpmailer": "^5.2",
+        "league/oauth2-google": "^1.0"
     }
 }
