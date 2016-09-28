@@ -16,5 +16,11 @@ $vars = [
 	'products' => [ 'pname' => 'Fatboy Lamzac', 'pname' => 'BigBag' ]
 ];
 
+
+Username:	sendonly@mbw2016.dvc-icta.nl
+Password:	sendonly
+Pop3 Server:	mail.mbw2016.dvc-icta.nl
+Smtp Server:	mail.mbw2016.dvc-icta.nl
+
 // output everything
 echo $blade->view()->make('layout')->with($vars)->render();

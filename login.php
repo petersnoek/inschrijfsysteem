@@ -12,9 +12,11 @@ if ( IsLoggedInSession()==true ) {
 }
 else
 {
-	// haal errors op uit $_SESSION['errors'] en stop in $errors variabele
-	require_once 'inc/errors.php';		// take from $_SESSION['errors'], clear session, and store in $errors
-
+	// get errors from session
+	if ( isset ($_SESSION['errors'])) {
+		$errors = $_SESSION['errors'];
+		$_SESSION['errors'] = array();	// remove all errors
+	}
 	// tell blade to create HTML from the template "login.blade.php"
 	echo $blade->view()->make('login')->withErrors($errors)->render();
 }
