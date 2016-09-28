@@ -1,4 +1,10 @@
 <?php
+// TO MAKE THIS WORK WITH YOUR GMAIL ACCOUNT
+// 1. log into your gmail account using a webbrowser
+// 2. in your browser, navigate to https://www.google.com/settings/u/0/security/lesssecureapps and allow non-secure apps
+// 3. in your browser, navigate to https://accounts.google.com/b/0/DisplayUnlockCaptcha and confirm
+// 4. now try to run this page again
+
 /**
  * This example shows settings to use when sending via Google's Gmail servers.
  */
@@ -43,7 +49,7 @@ $mail->addAddress('petersnoek@davinci.nl', 'Peter Snoek');
 $mail->Subject = 'PHPMailer GMail SMTP test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML(file_get_contents('inc/sendmail.html'), dirname(__FILE__));
+$mail->msgHTML(file_get_contents('views/sendmail.html'), dirname(__FILE__));
 //Replace the plain text body with one created manually
 $mail->AltBody = 'This is a plain-text message body';
 //Attach an image file

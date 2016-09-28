@@ -7,7 +7,6 @@ require_once 'inc/dbconnection.php';	// geeft mij een $db variabele, een werkend
 // haal events uit de database mbv PDO
 $statement = $db->prepare('SELECT * FROM events;');
 $statement->execute();
-$countrows = $statement->rowCount();
 $events = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 // tell blade to create HTML from the template "login.blade.php"
