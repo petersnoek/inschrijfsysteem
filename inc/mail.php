@@ -1,10 +1,15 @@
 <?php
 
-require_once 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
-require_once 'inc/blade.php';			// creates $blade 
+// use Philo\Blade\Blade;
 
 function SendActivationEmail($email, $name) {
+    require_once 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
+//    require 'vendor/autoload.php';
+//    $views = __DIR__ . '/../views';		// blade.php now sits in /inc folder, so prefix views folder with /../
+//    $cache = __DIR__ . '/../cache';		// so $views and $cache still point to valid filesystem folder
+//
+//    $blade = new Blade($views, $cache);
 	$mail = new PHPMailer;
 	$mail->isSMTP();
 	$mail->SMTPDebug = 0;
@@ -23,10 +28,11 @@ function SendActivationEmail($email, $name) {
 	$mail->addAddress($email, $name);
 	//Set the subject line
 	$mail->Subject = 'Account verification';
-	//Read an HTML message body from an external file, convert referenced images to embedded,
-	//convert HTML into a basic plain-text alternative body
 
-	$msg = $blade->view()->make('sendmail')->withErrors($errors)->render();
+//  Read an HTML message body from an external file, convert referenced images to embedded,
+//  convert HTML into a basic plain-text alternative body
+
+//	$msg = $blade->view()->make('sendmail')->render();
 
 	$mail->msgHTML(file_get_contents('views/sendmail.html'), dirname(__FILE__));
 	//Replace the plain text body with one created manually
