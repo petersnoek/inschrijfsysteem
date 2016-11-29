@@ -7,6 +7,7 @@ require_once 'inc/blade.php';			// creates $blade
 
 if ( IsLoggedInSession()==true ) {
 	// stuur direct door naar main pagina
+    $_SESSION['errors'][] = "U bent al ingelogd!";
 	header('location: main.php');
 	exit;
 }
