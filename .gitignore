@@ -2,3 +2,4 @@ cache
 .idea/
 vendor/
 ftpsync.settings
+inc/passwords.php
